@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Finance
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Symbol</th>
+                <th>Number of Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for asset in assets %}
+            <tr>
+                <td>{{asset["companyName"]}}</td>
+                <td>{{asset["symbol"]}}</td>
+                <td>{{asset["shares"]}}</td>
+                <td>{{fun(asset["holding_value"]/asset["shares"])}}</td>
+                <td>{{fun(asset["holding_value"])}}</td>
+            </tr>
+            {% endfor %}
+            <tr style="font-weight: bold;">
+                <td colspan="4">Cash</td>
+                <td>{{liquidity}}</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr style="font-weight: bold;">
+                <td colspan="4"></td>
+                <td>{{total_cash}}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

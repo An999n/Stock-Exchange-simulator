@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    your balance is not enough
+{% endblock %}
+
+{% block main %}
+
+        <div class="form-group">
+            <h3>Your balance is not enough to complete the transaction</h3>
+            <p> your current balance is: {{curr_balance}} ,While the required balance for requested stocks is: {{stock_cost}}. <a href="buy">Return</a></p>
+        </div>
+{% endblock %}

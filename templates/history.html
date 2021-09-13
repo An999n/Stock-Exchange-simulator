@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol of Company</th>
+                <th>Number of Shares</th>
+                <th>Date</th>
+                <th>Transaction method</th>
+                <th>Cost</th>
+                <th>Balance before</th>
+                <th>Balance after</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for payment in history %}
+            <tr>
+                <th>{{payment["symbol"]}}</th>
+                <th>{{payment["shares"]}}</th>
+                <th>{{payment["date"]}}</th>
+                <th>{{payment["transaction_method"]}}</th>
+                <th>{{payment["cost"]}}</th>
+                <th>{{payment["balance_before"]}}</th>
+                <th>{{payment["balance_after"]}}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
